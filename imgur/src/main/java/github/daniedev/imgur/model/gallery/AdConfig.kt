@@ -11,7 +11,7 @@ data class AdConfig(
     @Json(name = "safeFlags")
     val safeFlags: List<String>,
     @Json(name = "showsAds")
-    val showsAds: Boolean,
+    val showsAds: Boolean?,
     @Json(name = "unsafeFlags")
     val unsafeFlags: List<String>,
     @Json(name = "wallUnsafeFlags")

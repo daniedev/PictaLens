@@ -9,7 +9,7 @@ data class GalleryResponse(
     @Json(name = "data")
     val `data`: List<Data>,
     @Json(name = "status")
-    val status: Int,
+    val status: Int?,
     @Json(name = "success")
     val success: Boolean
 )
