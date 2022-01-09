@@ -1,39 +1,37 @@
-  package github.daniedev.pictalens.ui.feed
+package github.daniedev.pictalens.ui.feed
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import github.daniedev.pictalens.R
+import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import github.daniedev.pictalens.databinding.FragmentFeedBinding
 
 class FeedFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = FeedFragment()
-    }
+    private val viewModel: FeedViewModel by activityViewModels()
 
-    private lateinit var viewModel: FeedViewModel
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val feed = arguments?.getString("feed")
+        feed?.let { viewModel.updateFeed(it) }
+
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val feed = arguments?.getString("feed")
-        val rootView = inflater.inflate(R.layout.fragment_feed, container, false)
 
-        feed?.let { rootView.findViewById<TextView>(R.id.feedContent).text = it }
+        val binding = FragmentFeedBinding.inflate(inflater, container, false)
 
+       // feed?.let { binding.feedType.text = it }
+        viewModel.galleryFeed.observe({lifecycle}) {
+            Toast.makeText(requireContext(), "Downloaded ${it.size} images", Toast.LENGTH_SHORT).show()
+        }
 
-        return rootView
+        return binding.root
     }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(FeedViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
-
 }
