@@ -5,9 +5,9 @@ import github.daniedev.imgur.requestparams.Section
 import junit.framework.Assert.assertNotNull
 import org.junit.Test
 
-class ImgurV3Test {
+class ImgurV3ServiceTest {
 
-    private val imgurService: ImgurV3 = ImgurManager.imgurService
+    private val imgurService: ImgurV3Service = ImgurManager.imgurService
 
     @Test
     fun `get tags returns Valid Response`() {

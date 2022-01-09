@@ -1,7 +1,7 @@
 package github.daniedev.imgur
 
 import github.daniedev.imgur.converter.EnumTypeConverterFactory
-import github.daniedev.imgur.service.ImgurV3
+import github.daniedev.imgur.service.ImgurV3Service
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
@@ -31,5 +31,5 @@ object ImgurManager {
             .build()
     }
 
-    val imgurService: ImgurV3 by lazy { retrofit.create(ImgurV3::class.java) }
+    val imgurService: ImgurV3Service by lazy { retrofit.create(ImgurV3Service::class.java) }
 }
