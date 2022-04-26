@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import coil.load
 import github.daniedev.imgur.model.gallery.Data
+import github.daniedev.pictalens.R
 import github.daniedev.pictalens.databinding.ItemGalleryFeedBinding
 
 
@@ -19,6 +20,8 @@ class GalleryFeedAdapter : ListAdapter<Data, GalleryFeedViewHolder >(GalleryFeed
     override fun onBindViewHolder(holder: GalleryFeedViewHolder, position: Int) {
         val data = getItem(position)
         holder.binding.feedCaption.text = data.title
-        holder.binding.feedImage.load("https://i.imgur.com/${data.cover}.jpg")
+        holder.binding.feedImage.load("https://i.imgur.com/${data.cover}.jpg") {
+            placeholder(R.drawable.ic_placeholder)
+        }
     }
 }
