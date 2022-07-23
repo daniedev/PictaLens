@@ -21,7 +21,7 @@ class GalleryFeedAdapter : ListAdapter<Data, GalleryFeedViewHolder >(GalleryFeed
         val data = getItem(position)
         holder.binding.feedCaption.text = data.title
         holder.binding.feedImage.load("https://i.imgur.com/${data.cover}.jpg") {
-            placeholder(R.drawable.ic_placeholder)
+            placeholder(R.drawable.ic_placeholder_please_wait)
         }
     }
 }
