@@ -3,6 +3,7 @@ package github.daniedev.imgur.model.gallerytags
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import github.daniedev.imgur.model.common.Tag
 
 @JsonClass(generateAdapter = true)
 data class Data(
@@ -11,5 +12,5 @@ data class Data(
     @Json(name = "galleries")
     val galleries: List<Gallery>,
     @Json(name = "tags")
-    val tags: List<TagX>
+    val tags: List<Tag>
 )
