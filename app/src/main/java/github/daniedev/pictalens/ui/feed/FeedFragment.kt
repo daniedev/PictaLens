@@ -30,7 +30,7 @@ class FeedFragment : Fragment() {
         binding.galleryFeedContainer.layoutManager = LinearLayoutManager(requireContext())
         binding.galleryFeedContainer.adapter = galleryFeedAdapter
 
-        viewModel.galleryFeed.observe({lifecycle}) {
+        viewModel.galleryFeed.observe(viewLifecycleOwner) {
             galleryFeedAdapter.submitList(it)
         }
 
