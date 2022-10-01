@@ -1,6 +1,7 @@
 package github.daniedev.imgur.service
 
 import github.daniedev.imgur.model.gallery.GalleryResponse
+import github.daniedev.imgur.model.gallerytag.GalleryTagResponse
 import github.daniedev.imgur.model.gallerytags.GalleryTagsResponse
 import github.daniedev.imgur.requestparams.Section
 import retrofit2.Response
@@ -18,5 +19,10 @@ interface ImgurV3Service {
 
     @GET("tags")
     suspend fun getTags() : Response<GalleryTagsResponse>
+
+    @GET("gallery/t/{tag}")
+    suspend fun getTagGallery(
+        @Path("tag") tag: String
+    ) : Response<GalleryTagResponse>
 
 }

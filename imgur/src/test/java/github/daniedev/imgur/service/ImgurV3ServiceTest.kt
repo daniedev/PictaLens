@@ -18,6 +18,13 @@ class ImgurV3ServiceTest {
     }
 
     @Test
+    fun `get tag - science_and_tech returns Valid Response`() = runBlocking {
+        val response = imgurService.getTagGallery("aww")
+        println(response.raw().toString())
+        assertNotNull(response.body())
+    }
+
+    @Test
     fun `get gallery - hot returns Valid Response`() = runBlocking {
         val response = imgurService.getGallery(Section.HOT)
         println(response.raw().toString())

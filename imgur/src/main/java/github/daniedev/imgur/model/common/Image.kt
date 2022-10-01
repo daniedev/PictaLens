@@ -81,5 +81,7 @@ data class Image(
     @Json(name = "vote")
     val vote: Any?,
     @Json(name = "width")
-    val width: Int?
+    val width: Int?,
+    @Json(name = "images")
+    val images: List<Image>?
 )
