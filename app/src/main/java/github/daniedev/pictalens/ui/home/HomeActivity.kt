@@ -1,4 +1,4 @@
-package github.daniedev.pictalens
+package github.daniedev.pictalens.ui.home
 
 import android.os.Bundle
 import androidx.activity.viewModels
@@ -8,14 +8,14 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import github.daniedev.pictalens.R
 import github.daniedev.pictalens.databinding.ActivityMainBinding
 import github.daniedev.pictalens.ui.stories.StoriesRecyclerAdapter
-import github.daniedev.pictalens.ui.stories.StoriesViewModel
 
-class MainActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private val storiesViewModel by viewModels<StoriesViewModel>()
+    private val storiesViewModel by viewModels<HomeViewModel>()
     private val storiesRecyclerAdapter = StoriesRecyclerAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {

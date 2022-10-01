@@ -1,4 +1,4 @@
-package github.daniedev.pictalens.ui.stories
+package github.daniedev.pictalens.ui.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -10,7 +10,7 @@ import github.daniedev.pictalens.repository.ImgurRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class StoriesViewModel : ViewModel() {
+class HomeViewModel : ViewModel() {
 
     private val repo = ImgurRepository()
     private val _tags = MutableLiveData<List<Tag>>()
