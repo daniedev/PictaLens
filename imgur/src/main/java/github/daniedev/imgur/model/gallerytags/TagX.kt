@@ -14,8 +14,6 @@ data class TagX(
     val backgroundIsAnimated: Boolean?,
     @Json(name = "description")
     val description: String?,
-    @Json(name = "description_annotations")
-    val descriptionAnnotations: DescriptionAnnotationsX,
     @Json(name = "display_name")
     val displayName: String?,
     @Json(name = "followers")
