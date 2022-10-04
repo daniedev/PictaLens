@@ -83,5 +83,9 @@ data class Image(
     @Json(name = "width")
     val width: Int?,
     @Json(name = "images")
-    val images: List<Image>?
+    val images: List<Image>?,
+    @Json(name = "is_album")
+    val isAlbum: Boolean?,
+    @Json(name = "images_count")
+    val imagesCount: Int?
 )
