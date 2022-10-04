@@ -7,6 +7,8 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import coil.Coil
+import coil.request.ImageRequest
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import github.daniedev.pictalens.R
 import github.daniedev.pictalens.databinding.ActivityMainBinding
@@ -50,6 +52,13 @@ class HomeActivity : AppCompatActivity() {
         super.onResume()
         storiesViewModel.fetchTags()
         storiesViewModel.tags.observe(this) {
+            it.forEach { tag ->
+                val request = ImageRequest.Builder(this)
+                    .data("https://i.imgur.com/${tag.backgroundHash}.jpg")
+                    .size(resources.getDimensionPixelSize(R.dimen.story_head_size))
+                    .build()
+                Coil.imageLoader(this).enqueue(request)
+            }
             storiesRecyclerAdapter.submitList(it)
         }
     }

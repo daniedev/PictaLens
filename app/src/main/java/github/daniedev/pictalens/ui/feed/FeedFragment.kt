@@ -8,6 +8,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import coil.Coil
+import coil.request.ImageRequest
+import github.daniedev.pictalens.R
 import github.daniedev.pictalens.databinding.FragmentFeedBinding
 
 class FeedFragment : Fragment() {
@@ -31,6 +34,13 @@ class FeedFragment : Fragment() {
         binding.galleryFeedContainer.adapter = galleryFeedAdapter
 
         viewModel.galleryFeed.observe(viewLifecycleOwner) {
+            it.forEach { image ->
+                val request = ImageRequest.Builder(requireContext())
+                    .data("https://i.imgur.com/${image.cover}.jpg")
+                    .size(binding.galleryFeedContainer.width)
+                    .build()
+                Coil.imageLoader(requireContext()).enqueue(request)
+            }
             galleryFeedAdapter.submitList(it)
         }
 
